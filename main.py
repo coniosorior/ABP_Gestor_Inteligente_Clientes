@@ -127,20 +127,35 @@ def accion_editar_cliente(gestor: GestorClientes):
         return
 
     print("\nEditar cliente (Enter para dejar igual):")
+
     nombre = pedir_texto("Nuevo nombre: ", obligatorio=False)
 
-    email = pedir_texto("Nuevo email: ", obligatorio=False)
-    if email is not None and not email_es_valido(email):
-        print("Correo no válido. No se aplicará el cambio de email.")
-        email = None
+    email = None
+    while True:
+        intento = pedir_texto("Nuevo email: ", obligatorio=False)
+        if intento is None:
+            break  
+        if email_es_valido(intento):
+            email = intento
+            break
+        print("Formato de correo invalido. Por favor, inténtelo otra vez.")
 
-    telefono = pedir_texto("Nuevo celular (Chile): ", obligatorio=False)
-    if telefono is not None and not telefono_chile_es_valido(telefono):
-        print("Celular inválido. No se aplicará el cambio de celular.")
-        telefono = None
+    telefono = None
+    while True:
+        intento = pedir_texto("Nuevo celular (Chile): ", obligatorio=False)
+        if intento is None:
+            break  
+        if telefono_chile_es_valido(intento):
+            telefono = intento.strip().replace(" ", "")
+            break
+        print("Formato de número invalido. Por favor, ingresar correctamente (ejemplo: 9XXXXXXXX).")
 
     gestor.editar(cid, nombre=nombre, email=email, telefono=telefono)
-    print("Cliente editado.")
+
+    actualizado = gestor.buscar_por_id(cid)
+    print("\nCliente editado exitosamente.")
+    print(" -", actualizado)
+
 
 
 def submenu_activar_desactivar(gestor: GestorClientes):

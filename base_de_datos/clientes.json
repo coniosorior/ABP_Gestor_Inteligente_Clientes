@@ -4,7 +4,7 @@
     "nombre": "Carla",
     "email": "carla@mail.cl",
     "telefono": "912345678",
-    "activo": false,
+    "activo": true,
     "tipo": "regular"
   },
   {
@@ -29,7 +29,7 @@
     "nombre": "Constanza",
     "email": "constanza@mail.cl",
     "telefono": "912345678",
-    "activo": true,
+    "activo": false,
     "tipo": "premium"
   },
   {
@@ -42,8 +42,8 @@
   },
   {
     "cliente_id": 5,
-    "nombre": "mario",
-    "email": "cano@gmail.cl",
+    "nombre": "julio",
+    "email": "julio@gmail.com",
     "telefono": "912345678",
     "activo": true,
     "tipo": "regular"
@@ -58,9 +58,9 @@
   },
   {
     "cliente_id": 7,
-    "nombre": "carlos",
-    "email": "carlos@gmail.com",
-    "telefono": "978945612",
+    "nombre": "camila",
+    "email": "camila@mail.com",
+    "telefono": "996385274",
     "activo": true,
     "tipo": "premium"
   }
