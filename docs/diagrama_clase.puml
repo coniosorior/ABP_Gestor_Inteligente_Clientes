@@ -1,0 +1,89 @@
+@startuml Diagrama
+title Gestor Inteligente de Clientes (GIC) - Diagrama de Clases (UML)
+
+skinparam classAttributeIconSize 0
+
+' =========================
+' MODELO (DOMINIO)
+' =========================
+abstract class Cliente {
+  - cliente_id: int
+  - nombre: str
+  - email: str
+  - telefono: str
+  - activo: bool
+
+  {abstract} + tipo: str
+  {abstract} + calcular_descuento(tarifa_base: int): int
+
+  + calcular_cuota_mensual(tarifa_base: int): int
+  + a_dict(): dict
+}
+
+class ClienteRegular {
+  + calcular_descuento(tarifa_base: int): int
+}
+
+class ClientePremium {
+  + calcular_descuento(tarifa_base: int): int
+}
+
+class ClienteCorporativo {
+  - empresa: str
+  + calcular_descuento(tarifa_base: int): int
+}
+
+Cliente <|-- ClienteRegular
+Cliente <|-- ClientePremium
+Cliente <|-- ClienteCorporativo
+
+note right of Cliente
+  activo (bool):
+  - True  -> suscripción vigente
+  - False -> cliente inactivo / dado de baja
+
+  tipo:
+  - "regular" | "premium" | "corporativo"
+end note
+
+' =========================
+' LÓGICA DE APLICACIÓN
+' =========================
+class GestorClientes {
+  - clientes: List<Cliente>
+  - repositorio: ClientesRepositorioJSON
+
+  + cargar_desde_archivo(): void
+  + guardar_en_archivo(): void
+
+  + agregar(cliente: Cliente): void
+  + listar(): List<Cliente>
+  + buscar_por_id(cliente_id: int): Cliente
+  + editar(cliente_id: int, nombre: str, email: str, telefono: str, activo: bool): void
+  + eliminar(cliente_id: int): void
+}
+
+' =========================
+' PERSISTENCIA
+' =========================
+class ClientesRepositorioJSON {
+  - ruta_archivo: str
+
+  + cargar(): List<Cliente>
+  + guardar(clientes: List<Cliente>): void
+}
+
+' =========================
+' RELACIONES
+' =========================
+
+' Agregación: el gestor agrupa/administra muchos clientes (los clientes pueden existir sin el gestor)
+GestorClientes "1" o-- "0..*" Cliente : administra
+
+' Asociación: el gestor usa un repositorio para cargar/guardar
+GestorClientes "1" -- "1" ClientesRepositorioJSON : usa
+
+' Dependencia: el repositorio usa Cliente para (de)serializar objetos
+ClientesRepositorioJSON ..> Cliente : (de)serializa
+
+@enduml

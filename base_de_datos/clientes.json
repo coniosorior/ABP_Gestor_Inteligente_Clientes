@@ -1,0 +1,67 @@
+[
+  {
+    "cliente_id": 1,
+    "nombre": "Carla",
+    "email": "carla@mail.cl",
+    "telefono": "912345678",
+    "activo": false,
+    "tipo": "regular"
+  },
+  {
+    "cliente_id": 2,
+    "nombre": "Josefa",
+    "email": "josefa@empresa.cl",
+    "telefono": "987654321",
+    "activo": false,
+    "tipo": "premium"
+  },
+  {
+    "cliente_id": 3,
+    "nombre": "ACME",
+    "email": "contacto@acme.cl",
+    "telefono": "922233344",
+    "activo": false,
+    "tipo": "corporativo",
+    "empresa": "ACME Ltda."
+  },
+  {
+    "cliente_id": 100,
+    "nombre": "Constanza",
+    "email": "constanza@mail.cl",
+    "telefono": "912345678",
+    "activo": true,
+    "tipo": "premium"
+  },
+  {
+    "cliente_id": 4,
+    "nombre": "mario",
+    "email": "mario@gmail.com",
+    "telefono": "912345678",
+    "activo": true,
+    "tipo": "premium"
+  },
+  {
+    "cliente_id": 5,
+    "nombre": "mario",
+    "email": "cano@gmail.cl",
+    "telefono": "912345678",
+    "activo": true,
+    "tipo": "regular"
+  },
+  {
+    "cliente_id": 6,
+    "nombre": "maria",
+    "email": "maria@gmail.com",
+    "telefono": "912345678",
+    "activo": true,
+    "tipo": "regular"
+  },
+  {
+    "cliente_id": 7,
+    "nombre": "carlos",
+    "email": "carlos@gmail.com",
+    "telefono": "978945612",
+    "activo": true,
+    "tipo": "premium"
+  }
+]
