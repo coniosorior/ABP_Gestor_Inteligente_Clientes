@@ -8,8 +8,8 @@ La aplicación permite registrar, editar, activar o desactivar clientes, así co
 ## Ariquitectura del Sistema
 
 - **Modelos**: Definen la estructura y comportamiento de los clientes.
-- **Gestor de Clientes**: Implementa la lógica de negocio.
-- **Repositorio JSON**: Gestiona la persistencia de datos.
+- **Gestor de Clientes**: Implementa la lógica de negocio del sistema, gestionando las operaciones de agregar, listar, editar y activar/desactivar clientes, coordinando además la interacción con el repositorio para guardar y cargar datos.
+- **Repositorio JSON**: Gestiona la persistencia de datos, encargándose de guardar y cargar la información de los clientes desde el archivo `clientes.  json`, separando la lógica de negocio del almacenamiento.
 - **Validaciones**: Controla la integridad de los datos ingresados.
 - **Interfaz por Consola**: Permite la interacción mediante menú estructurado.
 
@@ -22,7 +22,7 @@ Esta organización favorece la claridad del código y facilita futuras extension
 - `gestor_clientes/`: lógica del sistema (operaciones CRUD + estado activo)
 - `validaciones/`: validaciones de formato (email y celular)
 - `docs/`: diagrama UML (PlantUML) y documentación teórica
-
+- `main.py`: archivo principal del sistema, encargado de iniciar la aplicación y ejecutar el menú interactivo.
 
 ## Aplicación de Programación Orientada a Objetos
 
