@@ -77,4 +77,3 @@ class ClienteCorporativo(Cliente):
 
     def calcular_descuento(self, tarifa_base: int) -> int:
         return (tarifa_base * 20) // 100
-

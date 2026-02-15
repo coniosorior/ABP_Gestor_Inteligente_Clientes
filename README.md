@@ -34,6 +34,8 @@ Se define una clase abstracta `Cliente` que establece la estructura común y obl
 ### Herencia
 Las clases `ClienteRegular`, `ClientePremium` y `ClienteCorporativo` heredan de `Cliente`, reutilizando atributos comunes y especializando el comportamiento de descuento.
 
+En el caso de `ClienteCorporativo`, se utiliza el método `super()` para reutilizar el constructor de la clase padre y evitar duplicación de código. De esta manera, los atributos comunes se inicializan desde la clase `Cliente`, y luego se agrega el atributo adicional `empresa`, propio del cliente corporativo.
+
 ### Polimorfismo
 El método `calcular_cuota_mensual()` se ejecuta de manera uniforme para todos los clientes, aplicando automáticamente el descuento correspondiente según el tipo del objeto.
 
