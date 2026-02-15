@@ -1,12 +1,12 @@
 import json
 import os
 from typing import List
-
 from modelos.clientes import Cliente, ClienteRegular, ClientePremium, ClienteCorporativo
 
 
 class ClientesRepositorioJSON:
-    def __init__(self, ruta_archivo: str = "base_datos/clientes.json"):
+
+    def __init__(self, ruta_archivo: str = "base_de_datos/clientes.json"):
         self.ruta_archivo = ruta_archivo
 
     def _asegurar_directorio(self) -> None:
@@ -37,8 +37,10 @@ class ClientesRepositorioJSON:
             raise OSError(f"No se pudo leer el archivo JSON: {e}") from e
 
         clientes: List[Cliente] = []
+
         for d in data:
             clientes.append(self._cliente_desde_dict(d))
+
         return clientes
 
     def _cliente_desde_dict(self, d: dict) -> Cliente:
@@ -46,8 +48,10 @@ class ClientesRepositorioJSON:
 
         if tipo == "regular":
             return ClienteRegular(**d)
+
         if tipo == "premium":
             return ClientePremium(**d)
+
         if tipo == "corporativo":
             return ClienteCorporativo(**d)
 

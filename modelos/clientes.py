@@ -25,7 +25,7 @@ class Cliente(ABC):
         return tarifa_base - self.calcular_descuento(tarifa_base)
 
     def a_dict(self) -> dict:
-        return {
+        data = {
             "cliente_id": self.cliente_id,
             "nombre": self.nombre,
             "email": self.email,
@@ -33,6 +33,12 @@ class Cliente(ABC):
             "activo": self.activo,
             "tipo": self.tipo
         }
+
+        if hasattr(self, "empresa"):
+            data["empresa"] = self.empresa
+
+        return data
+
 
     def __str__(self) -> str:
         estado = "Activo" if self.activo else "Inactivo"
@@ -43,9 +49,9 @@ class Cliente(ABC):
             f"{self.nombre}"
         )
 
-        # Si es cliente corporativo, mostrar empresa
-        if hasattr(self, "empresa") and self.empresa:
-            texto += f" | Empresa: {self.empresa}"
+        if self.tipo == "corporativo":
+            empresa_val = getattr(self, "empresa", None) or self.nombre
+            texto += f" | Empresa: {empresa_val}"
 
         texto += (
             f" | {self.email}"
