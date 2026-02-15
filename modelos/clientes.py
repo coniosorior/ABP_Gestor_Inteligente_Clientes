@@ -67,6 +67,10 @@ class ClientePremium(Cliente):
 class ClienteCorporativo(Cliente):
     campos = Cliente.campos + ["empresa"]
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.empresa = kwargs.get("empresa")
+
     @property
     def tipo(self) -> str:
         return "corporativo"
@@ -74,7 +78,3 @@ class ClienteCorporativo(Cliente):
     def calcular_descuento(self, tarifa_base: int) -> int:
         return (tarifa_base * 20) // 100
 
-    def a_dict(self) -> dict:
-        data = super().a_dict()
-        data["empresa"] = self.empresa
-        return data
