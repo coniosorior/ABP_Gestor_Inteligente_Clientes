@@ -55,10 +55,3 @@ class GestorClientes:
 
         self.guardar_en_archivo()
 
-    def eliminar(self, cliente_id: int) -> None:
-        cliente = self.buscar_por_id(cliente_id)
-        if cliente is None:
-            raise ValueError(f"No existe cliente con id={cliente_id}")
-
-        cliente.activo = False
-        self.guardar_en_archivo()

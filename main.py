@@ -134,7 +134,7 @@ def accion_editar_cliente(gestor: GestorClientes):
     while True:
         intento = pedir_texto("Nuevo email: ", obligatorio=False)
         if intento is None:
-            break  
+            break
         if email_es_valido(intento):
             email = intento
             break
@@ -144,7 +144,7 @@ def accion_editar_cliente(gestor: GestorClientes):
     while True:
         intento = pedir_texto("Nuevo celular (Chile): ", obligatorio=False)
         if intento is None:
-            break  
+            break
         if telefono_chile_es_valido(intento):
             telefono = intento.strip().replace(" ", "")
             break
@@ -155,7 +155,6 @@ def accion_editar_cliente(gestor: GestorClientes):
     actualizado = gestor.buscar_por_id(cid)
     print("\nCliente editado exitosamente.")
     print(" -", actualizado)
-
 
 
 def submenu_activar_desactivar(gestor: GestorClientes):
@@ -207,7 +206,9 @@ def accion_calcular_cuota(gestor: GestorClientes):
 
     tarifa = pedir_int("Monto / tarifa base (CLP): ")
     cuota = cliente.calcular_cuota_mensual(tarifa)
-    print(f"[{cliente.tipo.upper()}] ID: {cliente.cliente_id} | {cliente.nombre} | Cuota mensual a pagar: {cuota} CLP")
+
+    # MODIFICACIÓN: usar __str__ para mantener formato uniforme
+    print(f"{cliente} | Cuota mensual a pagar: {cuota} CLP")
 
 
 def mostrar_menu_principal():
@@ -251,3 +252,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
