@@ -45,7 +45,6 @@ class Cliente(ABC):
             f"{estado}"
         )
 
-
 class ClienteRegular(Cliente):
     @property
     def tipo(self) -> str:
