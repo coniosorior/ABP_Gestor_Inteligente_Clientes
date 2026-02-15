@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 
 class Cliente(ABC):
-   
+
     campos = ["cliente_id", "nombre", "email", "telefono", "activo"]
 
     def __init__(self, **kwargs):
@@ -36,16 +36,28 @@ class Cliente(ABC):
 
     def __str__(self) -> str:
         estado = "Activo" if self.activo else "Inactivo"
-        return (
+
+        texto = (
             f"[{self.tipo.upper()}] "
             f"ID: {self.cliente_id} | "
-            f"{self.nombre} | "
-            f"{self.email} | "
-            f"{self.telefono} | "
-            f"{estado}"
+            f"{self.nombre}"
         )
 
+        # Si es cliente corporativo, mostrar empresa
+        if hasattr(self, "empresa") and self.empresa:
+            texto += f" | Empresa: {self.empresa}"
+
+        texto += (
+            f" | {self.email}"
+            f" | {self.telefono}"
+            f" | {estado}"
+        )
+
+        return texto
+
+
 class ClienteRegular(Cliente):
+
     @property
     def tipo(self) -> str:
         return "regular"
@@ -55,6 +67,7 @@ class ClienteRegular(Cliente):
 
 
 class ClientePremium(Cliente):
+
     @property
     def tipo(self) -> str:
         return "premium"
@@ -64,6 +77,7 @@ class ClientePremium(Cliente):
 
 
 class ClienteCorporativo(Cliente):
+
     campos = Cliente.campos + ["empresa"]
 
     def __init__(self, **kwargs):

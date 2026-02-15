@@ -21,8 +21,7 @@
     "email": "contacto@acme.cl",
     "telefono": "922233344",
     "activo": false,
-    "tipo": "corporativo",
-    "empresa": "ACME Ltda."
+    "tipo": "corporativo"
   },
   {
     "cliente_id": 100,
@@ -63,5 +62,21 @@
     "telefono": "996385274",
     "activo": true,
     "tipo": "premium"
+  },
+  {
+    "cliente_id": 8,
+    "nombre": "EmpresaPrueba",
+    "email": "empresaprueba@gmail.com",
+    "telefono": "963741852",
+    "activo": true,
+    "tipo": "corporativo"
+  },
+  {
+    "cliente_id": 9,
+    "nombre": "Empresa 2",
+    "email": "empresa2@mail.com",
+    "telefono": "974196385",
+    "activo": true,
+    "tipo": "corporativo"
   }
 ]
