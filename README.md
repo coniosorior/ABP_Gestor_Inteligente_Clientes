@@ -42,6 +42,19 @@ El método `calcular_cuota_mensual()` se ejecuta de manera uniforme para todos l
 ### Encapsulamiento
 La manipulación de datos se realiza exclusivamente a través del `GestorClientes`, evitando acceso directo no controlado a la estructura interna de los objetos.
 
+## Relación entre clases (UML)
+
+Con respecto al diagrama de clases se explica brevemente la estructura del sistema y  las relaciones entre sus componentes principales:
+
+- **Herencia**: Las clases `ClienteRegular`, `ClientePremium` y `ClienteCorporativo` heredan de la clase abstracta `Cliente`, reutilizando atributos comunes y especializando el cálculo de descuentos.
+
+- **Agregación**: `GestorClientes` mantiene una colección de objetos `Cliente`, lo que representa una relación de administración sin dependencia de ciclo de vida.
+
+- **Asociación**: `GestorClientes` utiliza la clase `ClientesRepositorioJSON` para guardar y cargar datos, separando la lógica de negocio de la persistencia.
+
+- **Dependencia**: El repositorio realiza procesos de serialización y deserialización de objetos `Cliente` hacia el archivo JSON.
+
+
 ## Funcionalidades
 
 El sistema permite:
