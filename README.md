@@ -17,11 +17,11 @@ Esta organización favorece la claridad del código y facilita futuras extension
 
 ## Estructura carpetas
 
-- `modelos/`: clases del dominio (Cliente y subclases)
-- `repositorio/`: persistencia en archivo JSON
-- `gestor_clientes/`: lógica del sistema (operaciones CRUD + estado activo)
-- `validaciones/`: validaciones de formato (email y celular)
-- `docs/`: diagrama UML (PlantUML) y documentación teórica
+- `modelos/`: clases del dominio (Cliente y subclases).
+- `repositorio/`: persistencia en archivo JSON.
+- `gestor_clientes/`: lógica del sistema (operaciones CRUD + estado activo).
+- `validaciones/`: validaciones de formato (email y celular).
+- `docs/`: diagrama UML (PlantUML) y documentación teórica.
 - `main.py`: archivo principal del sistema, encargado de iniciar la aplicación y ejecutar el menú interactivo.
 
 ## Aplicación de Programación Orientada a Objetos
@@ -60,24 +60,24 @@ Con respecto al diagrama de clases se explica brevemente la estructura del siste
 El sistema permite:
 
 1. **Listar clientes**
-   - Listar clientes **activos**
-   - Listar clientes **inactivos**
+   - Listar clientes **activos**.
+   - Listar clientes **inactivos**.
 
 2. **Activar / Desactivar clientes**
-   - Cambia el estado del cliente usando el atributo `activo` (baja lógica, sin borrar datos)
+   - Cambia el estado del cliente usando el atributo `activo` (baja lógica, sin borrar datos).
 
 3. **Agregar cliente**
-   - Tipos disponibles: **regular**, **premium**, **corporativo**
-   - Validación de **correo electrónico** (formato válido)
-   - Validación de **celular formato utilizado en Chile** (formato: `9XXXXXXXX`)
-   - Validación de **ID único** (no permite IDs repetidos)
+   - Tipos disponibles: **regular**, **premium**, **corporativo**.
+   - Validación de **correo electrónico** (formato válido).
+   - Validación de **celular formato utilizado en Chile** (formato: `9XXXXXXXX`).
+   - Validación de **ID único** (no permite IDs repetidos).
 
 4. **Editar cliente**
-   - Permite modificar **nombre, email y celular**
+   - Permite modificar **nombre, email y celular**.
    - Si se intenta ingresar un email o celular inválido, el sistema solicita reintentar.
 
 5. **Calcular cuota mensual**
-   - Solicita un **monto base**
+   - Solicita un **monto base**.
    - Calcula la cuota final aplicando descuento según el tipo de cliente:
      - Regular: 5%
      - Premium: 10%
@@ -89,26 +89,22 @@ Para ejecutar el sistema existen dos opciones:
 
 ### Opción 1: Clonar el repositorio desde GitHub
 
-1. Abrir una terminal.
-
-2. Clonar el repositorio: 
+1. Clonar el repositorio: 
 https://github.com/coniosorior/ABP_Gestor_Inteligente_Clientes.git
 
-3. Abrir la carpeta **Abp4** en Visual Studio Code (VS Code).
+2. Abrir la carpeta **Abp4** en Visual Studio Code (VS Code).
 
-4. Ejecutar el sistema desde el archivo main.py
+3. Ejecutar el sistema desde el archivo main.py
 
 ---
 
 ### Opción 2: Ejecutar desde archivo .zip
 
-1. Descargar el archivo comprimido (.zip).
+1. Descomprimir el archivo (.zip).
 
-2. Descomprimir el archivo.
+2. Abrir la carpeta **Abp4** en Visual Studio Code.
 
-3. Abrir la carpeta **Abp4** en Visual Studio Code.
-
-4. Ejecutar: main.py
+3. Ejecutar: main.py.
 
 El sistema mostrará un menú interactivo en la consola para gestionar los clientes.
 
